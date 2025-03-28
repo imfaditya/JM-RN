@@ -1,11 +1,14 @@
-import {TJokeRequest, TJokeResponse} from '@/types/api';
+import {TJokeRequest, TJokeResponse} from '@/types/jokeApi';
 
 import {jokeApi} from './mainApi';
 
-export const getJoke = async (params: TJokeRequest) => {
+export const getJoke = async ({amount, category, type}: TJokeRequest) => {
   try {
-    const response = await jokeApi.get<TJokeResponse>('/joke', {
-      params,
+    const response = await jokeApi.get<TJokeResponse>(`/joke/${category}`, {
+      params: {
+        amount,
+        type,
+      },
     });
 
     return response.data;

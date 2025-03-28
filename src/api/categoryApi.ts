@@ -1,4 +1,4 @@
-import {TCategoryResponse} from '@/types/api';
+import {TCategoryResponse} from '@/types/jokeApi';
 
 import {jokeApi} from './mainApi';
 
