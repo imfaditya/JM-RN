@@ -1,14 +1,20 @@
-import React from 'react';
-
-import {Text, View} from 'react-native';
+import {SafeAreaProvider} from 'react-native-safe-area-context';
+import {GestureHandlerRootView} from 'react-native-gesture-handler';
+import {BottomSheetModalProvider} from '@gorhom/bottom-sheet';
 
 import './global.css';
+import {HomeScreen} from './screens/Home';
 
+// The requirement doesnt need multiple pages, so I'm not set up the navigation
 function App(): React.JSX.Element {
   return (
-    <View className="bg-red-500">
-      <Text className="mt-20">Nativewind Check</Text>
-    </View>
+    <SafeAreaProvider>
+      <GestureHandlerRootView className="flex-1">
+        <BottomSheetModalProvider>
+          <HomeScreen />
+        </BottomSheetModalProvider>
+      </GestureHandlerRootView>
+    </SafeAreaProvider>
   );
 }
 
