@@ -86,11 +86,15 @@ export const JokesListContent: FC<Props> = ({
               Language <Text className="uppercase">{selectedJoke?.lang}</Text>
             </Text>
             <View className="flex-row gap-2 flex-wrap">
-              {Object.entries(selectedJoke?.flags ?? {})?.map(value => (
-                <Text className="capitalize px-2 py-1 bg-jm-gray-light rounded-md">
-                  {value}
-                </Text>
-              ))}
+              {Object.entries(selectedJoke?.flags ?? {})?.map(
+                (value, index) => (
+                  <Text
+                    key={`flag-${index}`}
+                    className="capitalize px-2 py-1 bg-jm-gray-light rounded-md">
+                    {value}
+                  </Text>
+                ),
+              )}
             </View>
           </View>
 
