@@ -1,5 +1,5 @@
 import {FC, useState} from 'react';
-import {FlatList, View} from 'react-native';
+import {FlatList, Text, View} from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
 
 import {Accordion} from '@/components/Accordion';
@@ -37,7 +37,7 @@ export const HomeScreen: FC = () => {
   return (
     <SafeAreaView className="flex-1" edges={['bottom', 'left', 'right']}>
       <PageHeader />
-      {loadingCategory || loadingJokes ? (
+      {loadingJokes ? (
         <BasicSkeleton
           count={5}
           className="w-full h-14 rounded-md"
@@ -46,7 +46,7 @@ export const HomeScreen: FC = () => {
       ) : (
         <FlatList
           className="m-5"
-          refreshing={fetchingJokes}
+          refreshing={loadingJokes || loadingCategory}
           onRefresh={() => {
             refetchCategory();
           }}
@@ -92,6 +92,9 @@ export const HomeScreen: FC = () => {
           }}
         />
       )}
+      <Text className="text-xs text-center text-jm-gray">
+        Imam Faraz Aditya
+      </Text>
       <ModalLoading visible={loadingCategory} />
     </SafeAreaView>
   );
