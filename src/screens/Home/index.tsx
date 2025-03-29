@@ -95,7 +95,7 @@ export const HomeScreen: FC = () => {
       <Text className="text-xs text-center text-jm-gray">
         Imam Faraz Aditya
       </Text>
-      <ModalLoading visible={loadingCategory} />
+      <ModalLoading visible={true} />
     </SafeAreaView>
   );
 };
